@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage x:Class="AnotherTetrisCross.ViewPages.HighScoresDialogViewPage" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:conv="clr-namespace:AnotherTetrisCross.Converters;assembly=AnotherTetrisCross" xmlns:ctrl="clr-namespace:AnotherTetrisCross.Views;assembly=AnotherTetrisCross" xmlns:ext="clr-namespace:AnotherTetrisCross;assembly=AnotherTetrisCross"
+             BindingContext="{x:Static ext:Locator.HighScoresBindingContext}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <conv:BoolToColorConverter x:Key="boolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+        <StackLayout Orientation="Vertical" Padding="20,0,20,0" Spacing="20"
+                     VerticalOptions="Start">
+            <StackLayout.Children>
+
+                <Label FontSize="48" HorizontalOptions="Fill" HorizontalTextAlignment="Center"
+                       Text="Game Over" />
+
+                <Label FontSize="36" HorizontalOptions="Fill" HorizontalTextAlignment="Center"
+                       Text="{Binding LastScore,
+                                      StringFormat='{0} Points'}" />
+
+                <StackLayout HorizontalOptions="Fill" Orientation="Horizontal">
+                    <Label FontSize="20" HorizontalTextAlignment="Center" Text="Enter your Name:"
+                           VerticalTextAlignment="Center" WidthRequest="180" />
+
+                    <Entry x:Name="EntryPlayerName" FontSize="20" HorizontalOptions="FillAndExpand"
+                           Text="{Binding NameOfPlayer,
+                                          Mode=TwoWay}" />
+                </StackLayout>
+
+                <StackLayout HorizontalOptions="Fill" Orientation="Horizontal">
+                    <Button x:Name="ButtonSave"
+                            Command="{Binding SaveCommand}"
+                            HorizontalOptions="FillAndExpand" Text="Save" VerticalOptions="CenterAndExpand" />
+
+                    <Button x:Name="ButtonClear"
+                            Command="{Binding ClearCommand}"
+                            HorizontalOptions="FillAndExpand" Text="Clear" VerticalOptions="CenterAndExpand" />
+
+                </StackLayout>
+
+                <Button x:Name="ButtonGoBack"
+                        Command="{Binding NavigateCommand}"
+                        HorizontalOptions="FillAndExpand" Text="Go back" />
+
+                <ctrl:HighScoreView />
+
+            </StackLayout.Children>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

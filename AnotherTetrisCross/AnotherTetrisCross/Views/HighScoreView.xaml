@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AnotherTetrisCross.Views.HighScoreView"
+             xmlns:ext="clr-namespace:AnotherTetrisCross;assembly=AnotherTetrisCross"
+             BindingContext="{x:Static ext:Locator.HighScoresBindingContext}">
+
+    <StackLayout.Children>
+        <Label
+            Text="High Scores"
+            HorizontalTextAlignment="Center"
+            FontSize="48" />
+
+      <Grid HorizontalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="40" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row = "0" Grid.Column = "0" Text="Nr."    FontSize="20" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" ></Label>
+        <Label Grid.Row = "0" Grid.Column = "1" Text="Player" FontSize="20" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" ></Label>
+        <Label Grid.Row = "0" Grid.Column = "2" Text="Score"  FontSize="20" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" ></Label>
+      </Grid>
+
+      <ListView x:Name="HighScoresListView" ItemsSource="{Binding HighScorers}">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <Grid>
+                <Grid.RowDefinitions>
+                  <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="40" />
+                  <ColumnDefinition Width="*" />
+                  <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row = "0" Grid.Column = "0" Text="{Binding Position}" FontSize="20" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" ></Label>
+                <Label Grid.Row = "0" Grid.Column = "1" Text="{Binding Name}"     FontSize="20" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" ></Label>
+                <Label Grid.Row = "0" Grid.Column = "2" Text="{Binding Score}"    FontSize="20" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" ></Label>
+              </Grid>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout.Children>
+</StackLayout>

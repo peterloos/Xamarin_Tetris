@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="AnotherTetrisCross.ViewPages.AboutViewPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ext="clr-namespace:AnotherTetrisCross;assembly=AnotherTetrisCross"
+    BindingContext="{x:Static ext:Locator.AboutViewPageBindingContext}">
+
+    <StackLayout Orientation="Vertical" Padding="5" VerticalOptions="Center">
+        <Label FontSize="36" HorizontalOptions="CenterAndExpand"
+               Text="{Binding AboutDisplayText}"
+               VerticalOptions="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding HyperlinkCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Button Command="{Binding NavigateCommand}"
+                HorizontalOptions="Center" Text="Go back" VerticalOptions="Center" />
+
+    </StackLayout>
+</ContentPage>

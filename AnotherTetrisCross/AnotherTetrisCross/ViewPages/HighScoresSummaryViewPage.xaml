@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AnotherTetrisCross.ViewPages.HighScoresSummaryViewPage"
+    xmlns:ctrl="clr-namespace:AnotherTetrisCross.Views;assembly=AnotherTetrisCross">
+
+    <ContentPage.Content>
+        <ctrl:HighScoreView VerticalOptions="Center" Padding="20,0,20,0" Spacing="20"></ctrl:HighScoreView>
+    </ContentPage.Content>
+</ContentPage>
