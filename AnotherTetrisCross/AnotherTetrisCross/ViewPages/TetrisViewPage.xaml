@@ -1,76 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<ContentPage
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="AnotherTetrisCross.ViewPages.TetrisViewPage"
-    xmlns:ext="clr-namespace:AnotherTetrisCross;assembly=AnotherTetrisCross"
-    xmlns:conv="clr-namespace:AnotherTetrisCross.Converters;assembly=AnotherTetrisCross"
-    BindingContext="{x:Static ext:Locator.TetrisViewPageBindingContext}">
+<ContentPage x:Class="AnotherTetrisCross.ViewPages.TetrisViewPage" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:conv="clr-namespace:AnotherTetrisCross.Converters;assembly=AnotherTetrisCross" xmlns:ext="clr-namespace:AnotherTetrisCross;assembly=AnotherTetrisCross"
+             BindingContext="{x:Static ext:Locator.TetrisViewPageBindingContext}">
 
     <ContentPage.Resources>
         <ResourceDictionary>
             <conv:BoolToColorConverter x:Key="boolConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
-  
+
     <ContentPage.ToolbarItems>
-        <ToolbarItem
-            x:Name="ToolbarItems_Settings"
-            Text="Settings"
-            Order="Secondary"
-            Priority="0"
-            Command="{Binding NavigateSettingsCommand}" />
+        <ToolbarItem x:Name="ToolbarItems_Settings"
+                     Command="{Binding NavigateSettingsCommand}"
+                     Order="Secondary" Priority="0" Text="Settings" />
 
-        <ToolbarItem
-            x:Name="ToolbarItems_Highscores"
-            Text="Highscores"
-            Order="Secondary"
-            Priority="1"
-            Command="{Binding NavigateHighScoresCommand}" />
+        <ToolbarItem x:Name="ToolbarItems_Highscores"
+                     Command="{Binding NavigateHighScoresCommand}"
+                     Order="Secondary" Priority="1" Text="Highscores" />
 
-        <ToolbarItem
-            x:Name="ToolbarItems_About"
-            Text="About"
-            Order="Secondary"
-            Priority="2"
-            Command="{Binding NavigateAboutCommand}" />     
+        <ToolbarItem x:Name="ToolbarItems_About"
+                     Command="{Binding NavigateAboutCommand}"
+                     Order="Secondary" Priority="2" Text="About" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout
-            Padding="5"
-            Orientation="Vertical">
+        <StackLayout Orientation="Vertical" Padding="5">
 
-            <Label
-                HorizontalOptions="FillAndExpand"
-                HorizontalTextAlignment="Center"
-                TextColor="Color.White"
-                FontSize="30"
-                Text="Another Tetris V. 1.00 (Xamarin Forms)" />
+            <Label FontSize="30" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"
+                   Text="Another Tetris V. 1.01 (Xamarin Forms)" TextColor="Color.White" />
 
-            <StackLayout
-                Orientation="Horizontal"
-                VerticalOptions="Start"
-                HorizontalOptions="FillAndExpand">
+            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="Start">
 
-                <Button
-                    Text="Start"
-                    VerticalOptions="Fill"
-                    HorizontalOptions="FillAndExpand"
-                    Command="{Binding StartCommand}" />
+                <Button Command="{Binding StartCommand}"
+                        HorizontalOptions="FillAndExpand" Text="Start" VerticalOptions="Fill" />
 
-                <Button
-                    Text="Stop"
-                    VerticalOptions="Fill"
-                    HorizontalOptions="FillAndExpand"
-                    Command="{Binding PauseCommand}" />
+                <Button Command="{Binding PauseCommand}"
+                        HorizontalOptions="FillAndExpand" Text="Stop" VerticalOptions="Fill" />
             </StackLayout>
 
-            <Grid
-                VerticalOptions="Fill"
-                HorizontalOptions="FillAndExpand">
-                
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Fill">
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
@@ -81,96 +51,61 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <StackLayout
-                    Grid.Row="0" Grid.Column="0"
-                    Padding="5"
-                    Orientation="Horizontal">
+                <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Horizontal"
+                             Padding="5">
 
-                    <Label
-                        HorizontalOptions="Fill"
-                        FontSize="18"
-                        HorizontalTextAlignment="Start" VerticalOptions="Center"
-                        Text="Score:"></Label>
+                    <Label FontSize="18" HorizontalOptions="Fill" HorizontalTextAlignment="Start"
+                           Text="Score:" VerticalOptions="Center" />
 
-                    <Label
-                        HorizontalOptions="EndAndExpand"
-                        FontSize="18"
-                        HorizontalTextAlignment="Start" VerticalOptions="Center"
-                        Text="{Binding Score}"></Label>
+                    <Label FontSize="18" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="Start"
+                           Text="{Binding Score}"
+                           VerticalOptions="Center" />
                 </StackLayout>
-                
-                <StackLayout
-                    Grid.Row="0" Grid.Column="1"
-                    Padding="5"
-                    Orientation="Horizontal">
 
-                    <Label
-                        FontSize="18"
-                        HorizontalTextAlignment="Start" VerticalOptions="Center"
-                        Text="Lines:"></Label>
+                <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Horizontal"
+                             Padding="5">
 
-                    <Label
-                        HorizontalOptions="EndAndExpand"
-                        FontSize="18"
-                        HorizontalTextAlignment="Start" VerticalOptions="Center"
-                        Text="{Binding Lines}" ></Label>
+                    <Label FontSize="18" HorizontalTextAlignment="Start" Text="Lines:"
+                           VerticalOptions="Center" />
+
+                    <Label FontSize="18" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="Start"
+                           Text="{Binding Lines}"
+                           VerticalOptions="Center" />
                 </StackLayout>
-                
-                <StackLayout
-                    Grid.Row="0" Grid.Column="2"
-                    Padding="5"
-                    Orientation="Horizontal">
 
-                    <Label
-                        FontSize="18"
-                        HorizontalTextAlignment="Start" VerticalOptions="Center"
-                        Text="Level:"></Label>
-                    
-                    <Label
-                        HorizontalOptions="EndAndExpand"
-                        FontSize="18"
-                        HorizontalTextAlignment="Start" VerticalOptions="Center"
-                        Text="{Binding Level}"></Label>
+                <StackLayout Grid.Row="0" Grid.Column="2" Orientation="Horizontal"
+                             Padding="5">
+
+                    <Label FontSize="18" HorizontalTextAlignment="Start" Text="Level:"
+                           VerticalOptions="Center" />
+
+                    <Label FontSize="18" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="Start"
+                           Text="{Binding Level}"
+                           VerticalOptions="Center" />
                 </StackLayout>
             </Grid>
 
-            <Grid
-                VerticalOptions="FillAndExpand"
-                HorizontalOptions="FillAndExpand"
-                BackgroundColor="Silver"
-                Padding="5"
-                RowSpacing="5"
-                ColumnSpacing="5"
-                x:Name="TetrisGrid"/>
+            <Grid x:Name="TetrisGrid" BackgroundColor="Silver" ColumnSpacing="5"
+                  HorizontalOptions="FillAndExpand" Padding="5" RowSpacing="5"
+                  VerticalOptions="FillAndExpand" />
 
-            <StackLayout
-                Orientation="Horizontal"
-                VerticalOptions="End"
-                HorizontalOptions="FillAndExpand">
+            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="End">
 
-                <Button
-                    Text="Left"
-                    VerticalOptions="Fill"
-                    HorizontalOptions="FillAndExpand"
-                    Command="{Binding DoActionCommand}" CommandParameter="Left" />
+                <Button Command="{Binding DoActionCommand}"
+                        CommandParameter="Left" HorizontalOptions="FillAndExpand" Text="Left"
+                        VerticalOptions="Fill" />
 
-                <Button
-                    Text="Right"
-                    VerticalOptions="Fill"
-                    HorizontalOptions="FillAndExpand"
-                    Command="{Binding DoActionCommand}" CommandParameter="Right" />
-          
-                <Button
-                    Text="Down"
-                    VerticalOptions="Fill"
-                    HorizontalOptions="FillAndExpand"
-                    Command="{Binding DoActionCommand}" CommandParameter="Down" />
-          
-                <Button
-                    Text="Rotate"
-                    VerticalOptions="Fill"
-                    HorizontalOptions="FillAndExpand"
-                    Command="{Binding DoActionCommand}" CommandParameter="Rotate" />
+                <Button Command="{Binding DoActionCommand}"
+                        CommandParameter="Right" HorizontalOptions="FillAndExpand" Text="Right"
+                        VerticalOptions="Fill" />
+
+                <Button Command="{Binding DoActionCommand}"
+                        CommandParameter="Down" HorizontalOptions="FillAndExpand" Text="Down"
+                        VerticalOptions="Fill" />
+
+                <Button Command="{Binding DoActionCommand}"
+                        CommandParameter="Rotate" HorizontalOptions="FillAndExpand" Text="Rotate"
+                        VerticalOptions="Fill" />
 
             </StackLayout>
         </StackLayout>
